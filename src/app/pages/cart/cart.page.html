@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Carrito de Compras</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ng-container *ngIf="cartItems.length > 0; else emptyCart">
+    <ion-grid>
+      <ion-row>
+         <ion-col size="6" size-md="4" size-lg="3" *ngFor="let product of cartItems">
+          <app-item
+            [product]="product"
+            (remove)="onRemoveItem($event)">
+          </app-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+<ion-button expand="full" color="success" (click)="onPay()">
+      Pagar
+    </ion-button>
+  </ng-container>
+
+  <ng-template #emptyCart>
+    <ion-text color="medium">
+      <p>No hay productos en el carrito.</p>
+    </ion-text>
+  </ng-template>
+</ion-content>

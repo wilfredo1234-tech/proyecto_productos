@@ -1,0 +1,13 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{ product.title }}</ion-card-title>
+    <ion-card-subtitle> precio: {{ product.price | currency: "USD" }}</ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+    <img [src]="product.image" alt="{{ product.title }}" />
+    <p>{{ product.description }}</p>
+    <ion-button color="danger" expand="full" (click)="onRemove()">
+      Eliminar del Carrito
+    </ion-button>
+  </ion-card-content>
+</ion-card>

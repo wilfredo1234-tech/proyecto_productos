@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Detalles del Producto
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToCart()">
+        <ion-icon name="cart-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngIf="products">
+    <ion-card-header>
+      <ion-card-title>{{ products.title }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <img [src]="products.image" alt="{{ products.title }}" style="width: 100%; height: auto; margin-bottom: 15px;" />
+    </ion-card-content>
+
+  <ion-card-content>
+      <ion-card-subtitle>precio :{{ products.price | currency:"USD"}}</ion-card-subtitle>
+      <p> description : {{ products.description }}</p>
+
+      <div *ngIf="products.rating">
+        <p><strong>Rating:</strong> {{ products.rating.rate }} / 5</p>
+        <p><strong>Votos:</strong> {{ products.rating.count }}</p>
+      </div>
+
+      <ion-button expand="full" color="primary" (click)="addToCart()">Agregar al Carrito</ion-button>
+      <ion-button expand="full" color="success" (click)="payForProduct()">Pagar Producto</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

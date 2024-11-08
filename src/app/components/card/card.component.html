@@ -1,0 +1,11 @@
+<ion-card class="product-card">
+  <ion-card-header>
+    <ion-card-title>{{ title }}</ion-card-title>
+    <ion-card-subtitle>Category: {{ category }}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    <img [src]="image" alt="{{ title }}" class="card-image">
+    <ion-button expand="full" color="primary" (click)="onClick(id)"> Ver detalle</ion-button>
+  </ion-card-content>
+</ion-card>
